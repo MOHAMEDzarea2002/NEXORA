@@ -3,7 +3,7 @@ import Container from './Container';
 
 export default function TrustedBy() {
   return (
-    <div className="py-10  text-center">
+    <div className="py-20  text-center">
       <Container>
         <div className="relative">
           <h3 className="text-lg sm:text-2xl  text-gray-700 dark:text-white/75  font-semibold">
