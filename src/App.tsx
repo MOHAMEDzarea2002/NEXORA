@@ -3,6 +3,7 @@ import Navbar from './component/Navbar';
 import HeroSection from './component/HeroSection';
 import TrustedBy from './component/TrustedBy';
 import Services from './component/Services';
+import LastWork from './component/LastWork';
 
 type Theme = 'light' | 'dark';
 
@@ -20,6 +21,7 @@ function App() {
       <HeroSection/>
       <TrustedBy/>
       <Services/>
+      <LastWork/>
     </div>
   );
 }
