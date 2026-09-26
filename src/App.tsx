@@ -4,6 +4,7 @@ import HeroSection from './component/HeroSection';
 import TrustedBy from './component/TrustedBy';
 import Services from './component/Services';
 import LastWork from './component/LastWork';
+import TheTeam from './component/TheTeam';
 
 type Theme = 'light' | 'dark';
 
@@ -18,10 +19,11 @@ function App() {
   return (
     <div className="dark:bg-black">
       <Navbar theme={theme} setTheme={handleThemeChange} />
-      <HeroSection/>
-      <TrustedBy/>
-      <Services/>
-      <LastWork/>
+      <HeroSection />
+      <TrustedBy />
+      <Services />
+      <LastWork />
+      <TheTeam/>
     </div>
   );
 }
