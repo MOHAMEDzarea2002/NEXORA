@@ -28,7 +28,7 @@ export default function LastWork() {
     },
   ];
   return (
-    <section id="last-work" className="overflow-hidden pt-20  pb-20">
+    <section id="last-work" className="overflow-hidden pt-30  pb-20">
       <Container>
         <TitleSections
           title={'Our latest work'}

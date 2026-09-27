@@ -5,6 +5,7 @@ import TrustedBy from './component/TrustedBy';
 import Services from './component/Services';
 import LastWork from './component/LastWork';
 import TheTeam from './component/TheTeam';
+import ContactUs from './component/ContactUs';
 
 type Theme = 'light' | 'dark';
 
@@ -24,6 +25,7 @@ function App() {
       <Services />
       <LastWork />
       <TheTeam/>
+      <ContactUs/>
     </div>
   );
 }

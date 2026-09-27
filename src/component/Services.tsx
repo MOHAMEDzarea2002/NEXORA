@@ -27,7 +27,7 @@ export default function Services() {
   ];
 
   return (
-    <div className=" pt-20 relative overflow-hidden">
+    <div className=" pt-30 relative overflow-hidden">
       <Container>
         <TitleSections
           title={'How can we help?'}
