@@ -4,7 +4,7 @@ import assets, { teamData } from '../assets/assets';
 
 export default function HeroSection() {
   return (
-    <section id="hero" className=" py-20 overflow-hidden dark:text-white">
+    <section id="hero" className=" pt-30 overflow-hidden dark:text-white">
       <Container>
         <div className="flex flex-col items-center text-center gap-6">
           {/* avatar image &  text */}

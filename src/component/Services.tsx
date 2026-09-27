@@ -27,15 +27,18 @@ export default function Services() {
   ];
 
   return (
-    <div className=" pt-20 relative overflow-hidden">
+    <div className=" pt-30 relative overflow-hidden">
       <Container>
         <TitleSections
           title={'How can we help?'}
-          Description={
+          description={
             'From strategy to execution, we craft digital solutions that move your business forward.'
           }
         />
-        <img src={assets.bgImage2} className="absolute sm:-left-100 sm:-top-100  -z-10 dark:hidden " />
+        <img
+          src={assets.bgImage2}
+          className="absolute sm:-left-100 sm:-top-100  -z-10 dark:hidden "
+        />
 
         {/* Content */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
