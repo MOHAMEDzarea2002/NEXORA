@@ -1,6 +1,7 @@
 import TitleSections from './TitleSections';
 import Container from './Container';
-import {teamData} from '../assets/assets';
+import { teamData } from '../assets/assets';
+import { motion } from 'motion/react';
 
 export default function TheTeam() {
   return (
@@ -8,12 +9,21 @@ export default function TheTeam() {
       <Container>
         <TitleSections
           title="Meet the team"
-          description="A passionate team of digital experts dedicated to your
-brand’s success."
+          description="A passionate team of digital experts dedicated to the success of your brand."
         />
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          transition={{staggerChildren:0.5}}
+          viewport={{once:true}}
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6"
+        >
           {teamData.map((item, index) => (
-            <div
+            <motion.div
+            variants={{
+              hidden:{opacity:0,y:20},
+              visible:{opacity:1,y:0}
+            }}
               key={index}
               className="bg-white shadow-xl shadow-gray-100 dark:shadow-white/5 flex items-center gap-3.5 p-6 rounded-lg dark:bg-gray-900
               border border-gray-100 dark:border-gray-700 cursor-pointer hover:scale-103
@@ -25,9 +35,9 @@ brand’s success."
                 <h3 className=" dark:text-white">{item.name}</h3>
                 <p className="text-sm mt-2 text-gray-400 dark:text-white/70">{item.title}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </Container>
     </div>
   );

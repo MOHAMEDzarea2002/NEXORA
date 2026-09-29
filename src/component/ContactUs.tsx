@@ -5,6 +5,7 @@ import { toast } from 'react-hot-toast';
 import Container from './Container';
 import TitleSections from './TitleSections';
 import type React from 'react';
+import { motion } from 'motion/react';
 
 export default function ContactUs() {
 
@@ -37,15 +38,27 @@ export default function ContactUs() {
   };
 
   return (
-    <section id="Contact" className="py-30 ">
+    <motion.section
+    initial='hidden'
+    whileInView="visible"
+    transition={{staggerChildren:0.5}}
+    viewport={{once:true}}
+    id="contact-Us" className="py-30 ">
       <Container>
         <TitleSections
           title={'Contact us'}
           description={
-            'Ready to grow your brand? Let’s connect and build something exceptional together.'
+            'Are you ready to grow your brand? Let’s connect and build something exceptional together.'
           }
         />
-        <form
+        <motion.form
+        variants={
+          {
+            hidden:{opacity:0,y:30},
+            visible:{opacity:1,y:0}
+          }
+        }
+        transition={{duration:0.5,delay:0.4}}
           onSubmit={onSubmit}
           className="grid sm:grid-cols-2 gap-2.5 sm:gap-5 max-w-2xl w-full mx-auto"
         >
@@ -71,25 +84,25 @@ export default function ContactUs() {
               className="w-full border border-gray-400 pl-10 p-2 mt-3 rounded-lg outline-none focus:border-gray-500 dark:text-gray-400"
             />
           </div>
-          <div className=" sm:col-span-2 ">
+          <div className=" col-span-2 ">
             <label className="pb-3 dark:text-gray-400">Message</label>
             <textarea
               rows={8}
               name="message"
               required
               placeholder="Enter your message"
-              className="col-span-2 w-full border border-gray-400 pl-4 p-2 mt-3 rounded-lg outline-none focus:border-gray-500 dark:text-gray-400"
+              className=" w-full border border-gray-400 pl-4 p-2 mt-3 rounded-lg outline-none focus:border-gray-500 dark:text-gray-400"
             />
           </div>
           <button
             type="submit"
-            className="col-span-2 bg-primary px-4 py-2 w-fit text-white rounded-sm cursor-pointer dark:shadow-gray-700 shadow-gray-300 shadow-lg flex items-center gap-1.5 tracking-[5px]"
+            className="col-span-2 bg-primary px-4 py-2 w-fit text-white rounded-sm cursor-pointer dark:shadow-gray-700 shadow-gray-300  flex items-center gap-1.5 tracking-[5px]"
           >
             Submit
             <FaLongArrowAltRight />
           </button>
-        </form>
+        </motion.form>
       </Container>
-    </section>
+    </motion.section>
   );
 }

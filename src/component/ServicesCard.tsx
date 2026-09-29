@@ -1,12 +1,14 @@
 import React, { useRef, useState } from 'react';
+import { motion } from 'motion/react';
 
 type CardProps = {
   title: string;
   subTitle: string;
+  index:number;
   icon: string;
 };
 
-export default function ServicesCard({ icon, subTitle, title }: CardProps) {
+export default function ServicesCard({ icon, subTitle, title, index }: CardProps) {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [Visible, setVisible] = useState(false);
 
@@ -14,14 +16,18 @@ export default function ServicesCard({ icon, subTitle, title }: CardProps) {
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const bounds = divRef.current?.getBoundingClientRect();
-if (!bounds) return
-  setPosition({
-    x: e.clientX - bounds.left,
-    y: e.clientY - bounds.top,
-  });
+    if (!bounds) return;
+    setPosition({
+      x: e.clientX - bounds.left,
+      y: e.clientY - bounds.top,
+    });
   };
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.6 }}
+      viewport={{ once: true }}
       className={`
       max-w-lg border border-gray-200 dark:border-gray-700 shadow-2xl shadow-gray-100 dark:shadow-white/10
       rounded-lg relative overflow-hidden  `}
@@ -52,6 +58,6 @@ if (!bounds) return
           <p className="text-gray-700 ">{subTitle}</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

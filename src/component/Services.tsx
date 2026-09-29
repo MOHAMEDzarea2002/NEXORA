@@ -1,7 +1,9 @@
 import assets from '../assets/assets';
-import CardServices from './ServicesCard';
 import Container from './Container';
+import CardServices from './ServicesCard';
 import TitleSections from './TitleSections';
+//  Motion
+import { motion } from 'motion/react';
 export default function Services() {
   const DataCate = [
     {
@@ -27,7 +29,7 @@ export default function Services() {
   ];
 
   return (
-    <div className=" pt-30 relative overflow-hidden">
+    <section id="services" className=" pt-30 relative overflow-hidden">
       <Container>
         <TitleSections
           title={'How can we help?'}
@@ -37,21 +39,28 @@ export default function Services() {
         />
         <img
           src={assets.bgImage2}
-          className="absolute sm:-left-100 sm:-top-100  -z-10 dark:hidden "
+          className="absolute   sm:-left-60 sm:-top-70 -z-10 dark:hidden w-full max-w-5xl"
         />
 
         {/* Content */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          transition={{ staggerChildren: 0.5 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+        >
           {DataCate.map((data, index) => (
             <CardServices
+              index={index}
               key={index}
               title={data.title}
               subTitle={data.subtitle}
               icon={data.icon}
             />
           ))}
-        </div>
+        </motion.div>
       </Container>
-    </div>
+    </section>
   );
 }

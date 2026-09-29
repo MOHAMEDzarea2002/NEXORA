@@ -1,7 +1,8 @@
-import React from 'react'
+
 import TitleSections from './TitleSections';
-import assets, { teamData } from '../assets/assets';
+import assets from '../assets/assets';
 import Container from './Container';
+import { motion } from 'motion/react';
 
 type typeLastWorks = {
   image:string ;
@@ -36,18 +37,28 @@ export default function LastWork() {
             'Browse our portfolio of innovative digital projects that showcase creativity, performance, and results.'
           }
         />
-        <div className=" grid grid-cols-1 md:grid-cols-3   gap-3.5">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          transition={{ staggerChildren: 0.5 }}
+          viewport={{ once: true }}
+          className=" grid grid-cols-1 md:grid-cols-3   gap-3.5"
+        >
           {lastWorks?.map((laWork, index) => (
-            <div
+            <motion.div
+              variants={{
+                hidden: { opacity: 0, x: 40 },
+                visible: { opacity: 1, x: 0 },
+              }}
               key={index}
               className=" p-4 rounded-xl border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-xl shadow-gray-100 dark:shadow-white/5 hover:scale-103 transition-all duration-300 dark:text-white text-black "
             >
               <img src={laWork?.image} className="w-full" />
               <h3 className="my-4 text-lg">{laWork?.name}</h3>
               <p className="text-sm text-gray-400 dark:text-white/70 ">{laWork?.description}</p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </Container>
     </section>
   );

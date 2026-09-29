@@ -4,21 +4,27 @@ import assets from '../assets/assets.ts';
 // components
 import Container from './Container.tsx';
 import ThemeToggleBtn from './ThemeToggleBtn.tsx';
+// Motion
+import { motion } from 'motion/react';
 
 type themeTypeProps = {
   theme: 'light' | 'dark';
   setTheme: (theme: string) => void;
 };
 const links = [
-  { href: '/', title: 'home' },
+  { href: 'hero', title: 'home' },
   { href: 'services', title: 'services' },
-  { href: 'our-work', title: 'our work' },
-  { href: 'testimonial', title: 'testimonial' },
+  { href: 'last-work', title: 'our work' },
+  { href: 'contact-Us', title: 'contact us' },
 ];
 export default function Navbar({ theme, setTheme }: themeTypeProps) {
-  const [SidebarOpen, setSidebarOpen] = useState(true);
+  const [SidebarOpen, setSidebarOpen] = useState(false);
   return (
-    <div className="sticky top-0 z-20 backdrop-blur-xl font-medium bg-white/50 dark:bg-gray-900/70 py-4">
+    <motion.div
+    initial={{ opacity:0,y:-50}}
+    animate={{opacity:1,y:0}}
+    transition={{duration:0.5,ease:"easeIn"}}
+ className="sticky top-0 z-20 backdrop-blur-xl font-medium bg-white/50 dark:bg-gray-900/70 py-4">
       <Container>
         <div className=" flex justify-between items-center">
           {/* image Logo */}
@@ -43,7 +49,10 @@ export default function Navbar({ theme, setTheme }: themeTypeProps) {
               />
               {links.map((link) => (
                 <li key={`#${link.title}`} className=" sm:hover:border-b-2">
-                  <a className="w-full max-sm:block  max-sm:p-2 max-sm:border-b-2" href={link.href}>
+                  <a
+                    className="w-full max-sm:block  max-sm:p-2 max-sm:border-b-2 capitalize"
+                    href={`#${link.href}`}
+                  >
                     {link.title}
                   </a>
                 </li>
@@ -59,7 +68,7 @@ export default function Navbar({ theme, setTheme }: themeTypeProps) {
               onClick={() => setSidebarOpen(true)}
             />
             {/* <ThemeToggleBtr/> */}
-            <ThemeToggleBtn theme={theme} setTheme={setTheme}/>
+            <ThemeToggleBtn theme={theme} setTheme={setTheme} />
             <a
               className=" text-sm max-sm:hidden  text-white rounded-2xl px-6 bg-primary py-2 flex items-center gap-1.5
             cursor-pointer hover:scale-105 transition-all
@@ -70,6 +79,6 @@ export default function Navbar({ theme, setTheme }: themeTypeProps) {
           </div>
         </div>
       </Container>
-    </div>
+    </motion.div>
   );
 }
