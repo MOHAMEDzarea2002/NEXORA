@@ -1,4 +1,4 @@
-import logo from './logo.svg'
+
 import arrow_icon from './arrow_icon.svg'
 import group_profile from './group_profile.png'
 import bgImage1 from './bgImage1.png'
@@ -23,12 +23,14 @@ import facebook_icon from './facebook_icon.svg'
 import twitter_icon from './twitter_icon.svg'
 import instagram_icon from './instagram_icon.svg'
 import linkedin_icon from './linkedin_icon.svg'
-import logo_dark from './logo_dark.svg'
+// import logo_dark from './logo_dark.svg'
 import airbnb_logo from './airbnb_logo.svg'
 import google_logo from './google_logo.svg'
 import menu_icon_dark from './menu_icon_dark.svg'
 import sun_icon from './sun_icon.svg'
 import moon_icon from './moon_icon.svg'
+import logo from './logo.svg';
+import logo_dark from './logo_dark.svg'
 
 
 export const company_logos = [
@@ -41,7 +43,6 @@ export const company_logos = [
 ]
 
 const assets = {
-  logo,
   arrow_icon,
   group_profile,
   bgImage1,
@@ -62,11 +63,13 @@ const assets = {
   twitter_icon,
   instagram_icon,
   linkedin_icon,
-  logo_dark,
+
   menu_icon_dark,
   sun_icon,
-  moon_icon
-}
+  moon_icon,
+  logo,
+  logo_dark,
+};
 
 export default assets
 

@@ -18,8 +18,9 @@ export default function HeroSection() {
           >
             <div className=" flex items-center ">
               {teamData
-                .map((img) => (
+                .map((img,index:number) => (
                   <img
+                  key={index}
                     src={img.image}
                     className="rounded-full w-7 not-first:-ml-2 border-white border-2"
                   />

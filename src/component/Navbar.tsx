@@ -21,16 +21,17 @@ export default function Navbar({ theme, setTheme }: themeTypeProps) {
   const [SidebarOpen, setSidebarOpen] = useState(false);
   return (
     <motion.div
-    initial={{ opacity:0,y:-50}}
-    animate={{opacity:1,y:0}}
-    transition={{duration:0.5,ease:"easeIn"}}
- className="sticky top-0 z-20 backdrop-blur-xl font-medium bg-white/50 dark:bg-gray-900/70 py-4">
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeIn' }}
+      className="sticky top-0 z-20 backdrop-blur-xl font-medium bg-white/50 dark:bg-gray-900/70 py-4"
+    >
       <Container>
         <div className=" flex justify-between items-center">
           {/* image Logo */}
           <img
-            src={theme == 'dark' ? assets.logo_dark : assets.logo}
-            className="w-32 sm:w-40"
+            src={theme == 'dark' ? assets.logo : assets.logo_dark}
+            className="w-32 h-12  "
             alt="logo"
           />
           {/* Links Navbar */}
@@ -39,7 +40,7 @@ export default function Navbar({ theme, setTheme }: themeTypeProps) {
               className={`
                 text-gray-700 dark:text-white max-sm:text-white sm:text-sm md:text-lg flex max-sm:flex-col  sm:items-center gap-2.5
                 ${!SidebarOpen ? 'max-sm:w-0 overflow-hidden' : 'max-sm:w-60 '}
-            max-sm:fixed top-0 bottom-0 right-0 max-sm:min-h-screen max-sm:pt-28 transition-all  max-sm:bg-primary`}
+            max-sm:fixed top-0 bottom-0 right-0 max-sm:min-h-screen max-sm:pt-28 transition-all  max-sm:bg-black/50 max-sm:backdrop-blur-xl max-sm:dark:bg-gray-900/70`}
             >
               <img
                 src={assets.close_icon}

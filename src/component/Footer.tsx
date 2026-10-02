@@ -23,7 +23,7 @@ export default function Footer() {
           viewport={{ once: true }}
           className="space-y-5 text-gray-600 dark:text-gray-400"
         >
-          <img src={assets.logo} />
+          <img src={assets.logo_dark} className="w-32 h-12"/>
           <p className="text-sm  py-6 max:w-md">
             From strategy to execution, we craft digital solutions that move your business forward.
           </p>
